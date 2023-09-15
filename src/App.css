@@ -1,7 +1,6 @@
 .App{
   margin: auto;
   width: 50%;
- 
 }
 .container{
   margin: auto;
@@ -10,4 +9,8 @@
   border: 3px solid;
   border-radius: 2px;
   padding: 10px;
+}
+
+h1{
+  text-align: center;
 }

@@ -16,7 +16,6 @@ function App() {
           My T0-DO-LIST
         </h1>
         <div className='container'>
-          <p> This is to-do-list</p>
           <label>
             Enter your task here: 
             < input value={task} 
