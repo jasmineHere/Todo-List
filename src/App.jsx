@@ -6,9 +6,15 @@ function App() {
   const [taskList, setTaskList] = useState([]); // declare a state variable for lists
   
   const handleClick = () => {
-
-    setTaskList((prev) => setTaskList([...prev,task]))
+    if(task.trim() !== '') { // make sure empty tasks are not added
+      setTaskList(prev => [...prev, task]);
+      setTask(''); // clear the task input
+    }
   }; 
+
+  const handleTaskCompletion = (indexToRemove) => {
+    setTaskList(prev => prev.filter((_, index) => index !== indexToRemove));
+  };
 
   return (
     <div className="App">
@@ -17,14 +23,23 @@ function App() {
         </h1>
         <div className='container'>
           <label>
-            Enter your task here: 
+            <b>Enter your task here: </b> 
             < input value={task} 
               name="myInput" 
               defaultValue="Example Task"
               onChange={e => setTask(e.target.value)}/>
           </label>
           <button onClick={() => handleClick()}>Add</button>
-        {taskList&& taskList.map((task) => <p>{task}</p>)}
+        {/* {taskList&& taskList.map((task) => <p>{task}</p>)} */}
+        {taskList.map((task, index) => (
+          <div key={index}>
+            <input 
+              type="checkbox" 
+              onChange={() => handleTaskCompletion(index)} 
+            />
+            {task}
+          </div>
+        ))}
         </div>
     </div>
   );
