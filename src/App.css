@@ -1,11 +1,14 @@
 .App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   width: 50%;
 }
 
 .container{
   align-items: center;
-  justify-content: center;
   text-align: center;
   margin: auto;
   width: 70%;
@@ -13,7 +16,22 @@
   border: 3px solid;
   border-radius: 2px;
   padding: 10px;
-  position: relative;
+  flex-grow: 1; /* Allow this container to grow */
+  overflow-y: auto;
+}
+
+.tasksContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.TasksList{
+  margin: 10px;
+  border-radius: 2px;
+  font-size: large;
+  border: 1px solid;
+  padding: 10px;
+  text-align: left;
 }
 
 h1{
@@ -27,18 +45,18 @@ h1{
   border-radius: 2px;
   border: 2px solid;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .button2{
-  margin: 10px;
+  margin: 10px auto; /* 'auto' will center the block-level element horizontally */
   width: 200px;
   height: 40px;
   border-radius: 2px;
   font-size: large;
   border: 3px solid;
   font-weight: bolder;
-  position: absolute;   
-  bottom: 20px;       
-  left: 50%;           
-  transform: translateX(-50%); 
+  cursor: pointer;
+  display: block; /* ensures the button is a block-level element */
 }
+

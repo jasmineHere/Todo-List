@@ -46,26 +46,30 @@ function App() {
         <button className="button1" onClick={() => handleClick()}>
           Add
         </button>
-        {taskList.map((task, index) => (
-          <div key={index}>
-            <input
-              type="checkbox"
-              checked={completedTasks[index]}
-              onChange={() => handleTaskCompletion(index)}
-            />
-            <span
-              style={
-                completedTasks[index] ? { textDecoration: "line-through" } : {}
-              }
-            >
-              {task}
-            </span>
-          </div>
-        ))}
-        <button className="button2" onClick={() => clearAllTasks()}>
-          Clear All Tasks
-        </button>
+        <div className="tasksContainer">
+          {taskList.map((task, index) => (
+            <div className="TasksList" key={index}>
+              <input
+                type="checkbox"
+                checked={completedTasks[index]}
+                onChange={() => handleTaskCompletion(index)}
+              />
+              <span
+                style={
+                  completedTasks[index]
+                    ? { textDecoration: "line-through" }
+                    : {}
+                }
+              >
+                {task}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
+      <button className="button2" onClick={() => clearAllTasks()}>
+            Clear All Tasks
+      </button>
     </div>
   );
 }
