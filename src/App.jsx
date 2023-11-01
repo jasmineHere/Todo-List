@@ -14,6 +14,12 @@ function App() {
     }
   };
 
+  const handleInputKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
   const clearAllTasks = () => {
     setTaskList([]);
     setCompletedTasks([]);
@@ -41,6 +47,7 @@ function App() {
             name="myInput"
             defaultValue="Example Task"
             onChange={(e) => setTask(e.target.value)}
+            onKeyDown={handleInputKeyDown}
           />
         </label>
         <button className="button1" onClick={() => handleClick()}>
