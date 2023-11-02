@@ -25,13 +25,8 @@
   flex-direction: column;
 }
 
-.TasksList{
-  margin: 10px;
-  border-radius: 2px;
-  font-size: large;
-  border: 1px solid;
-  padding: 10px;
-  text-align: left;
+.TasksList input[type="checkbox"] {
+  margin-right: 10px;
 }
 
 h1{
@@ -60,3 +55,33 @@ h1{
   display: block; /* ensures the button is a block-level element */
 }
 
+.TasksList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  border-radius: 2px;
+  font-size: large;
+  border: 1px solid;
+  padding: 10px;
+}
+
+.TasksList .text {
+  flex-grow: 1; /* Allow text to expand and fill the available space */
+  margin-right: 10px; /* Create a fixed space between checkbox and text */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push icons to the right */
+}
+
+.icons i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.icons i:hover {
+  color: red; /* Change the color on hover or customize as needed */
+}

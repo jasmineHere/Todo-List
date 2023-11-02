@@ -20,6 +20,20 @@ function App() {
     }
   };
 
+  const handleEditTask = (index) => {
+    const updatedTask = prompt("Edit the task:", taskList[index]);
+    if (updatedTask !== null) {
+      setTaskList((prev) =>
+        prev.map((task, i) => (i === index ? updatedTask : task))
+      );
+    }
+  };
+
+  const handleDeleteTask = (index) => {
+    setTaskList((prev) => prev.filter((_, i) => i !== index));
+    setCompletedTasks((prev) => prev.filter((_, i) => i !== index));
+  };
+
   const clearAllTasks = () => {
     setTaskList([]);
     setCompletedTasks([]);
@@ -70,6 +84,16 @@ function App() {
               >
                 {task}
               </span>
+              <div className="icons">
+                <i
+                  className="far fa-edit"
+                  onClick={() => handleEditTask(index)}
+                ></i>
+                <i
+                  className="far fa-trash-alt"
+                  onClick={() => handleDeleteTask(index)}
+                ></i>
+              </div>
             </div>
           ))}
         </div>
@@ -82,3 +106,4 @@ function App() {
 }
 
 export default App;
+
